@@ -2,17 +2,19 @@
   "$schema": "https://developer.microsoft.com/json-schemas/sp/column-formatting.schema.json",
   "elmType": "div",
   "attributes": {
-    "class": "=if(@currentField <= 70, 'sp-field-severity--warning', '')"
+    "class": "=if(@currentField == 0, 'sp-field-severity--low', if(@currentField <= 180,'sp-field-severity--blocked',if(@currentField <= 360, 'sp-field-severity--warning' ,if(@currentField >= 356,'sp-field-severity--good', ''))"
+  
   },
   "children": [
     {
       "elmType": "span",
       "style": {
         "display": "inline-block",
-        "padding": "0 4px"
+        "padding": "0 2px"
       },
       "attributes": {
-        "iconName": "=if(@currentField <= 70, 'Error', '')"
+        "iconName": "=if(@currentField == 0,'Combine', if(@currentField <= 180, 'StatusErrorFull', if(@currentField <= 360, 'Warning', if(@currentField >= 356,'Accept','')"
+    
       }
     },
     {
